@@ -8,6 +8,8 @@ public class TerrainTile : MonoBehaviour
 
     private void Start()
     {
-        GetComponentInParent<WorldScrolling>().Add(gameObject, tilePosition); 
+        GetComponentInParent<WorldScrolling>().Add(gameObject, tilePosition);
+
+        transform.position = new Vector3(-100, -100, 0);
     }
 }
