@@ -10,7 +10,9 @@ public class PlayerMovement : MonoBehaviour
     public SpriteAnimate animate;
 
     Rigidbody2D rb;
-    Vector3 movementVector;
+    [HideInInspector] public Vector3 movementVector;
+    [HideInInspector] public float lastHorizontalVector;
+    [HideInInspector] public float lastVerticalVector;
 
     [SerializeField] float speed = 3f;
 
@@ -25,6 +27,15 @@ public class PlayerMovement : MonoBehaviour
     {
         movementVector.x = Input.GetAxis("Horizontal");
         movementVector.y = Input.GetAxis("Vertical");
+
+        if (movementVector.x != 0)
+        {
+            lastHorizontalVector = movementVector.x;
+        }
+        if (movementVector.y != 0)
+        {
+            lastVerticalVector = movementVector.y;
+        }
 
         animate.horizontal = movementVector.x;
         animate.vertical = movementVector.y;
