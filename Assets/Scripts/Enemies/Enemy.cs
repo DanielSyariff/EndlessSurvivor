@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    private SpriteRenderer sp;
+
+    Transform targetDestination;
     GameObject targetGameObject;
     Character targetCharacter;
     [SerializeField] float speed;
@@ -18,14 +20,21 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         rgbd2d = GetComponent<Rigidbody2D>();
-        targetGameObject = target.gameObject;
+        sp = transform.GetChild(0).GetComponent<SpriteRenderer>();
         ResetStatus();
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        targetGameObject = target;
+        targetDestination = target.transform;
     }
 
     private void FixedUpdate()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
+        Vector3 direction = (targetDestination.position - transform.position).normalized;
         rgbd2d.velocity = direction * speed;
+        TurnDirection();
         //transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
@@ -55,6 +64,18 @@ public class Enemy : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             ResetStatus();
+        }
+    }
+
+    public void TurnDirection()
+    {
+        if (transform.position.x > targetDestination.position.x)
+        {
+            sp.flipX = true;
+        }
+        else
+        {
+            sp.flipX = false;
         }
     }
 

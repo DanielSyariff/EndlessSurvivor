@@ -1,18 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject enemy;
+    [SerializeField] Vector2 spawnArea;
+    [SerializeField] float spawnTimer;
+    [SerializeField] GameObject player;
+    float timer;
+
+    private void Update()
     {
-        
+        timer -= Time.deltaTime;
+        if (timer < 0f)
+        {
+            SpawnEnemy();
+            timer = spawnTimer;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SpawnEnemy()
     {
-        
+        Vector3 position = new Vector3(UnityEngine.Random.Range(-spawnArea.x, spawnArea.x), UnityEngine.Random.Range(-spawnArea.y, spawnArea.y), 0);
+
+        GameObject newEnemy = Instantiate(enemy);
+        newEnemy.transform.position = position;
+        newEnemy.GetComponent<Enemy>().SetTarget(player);
     }
 }
