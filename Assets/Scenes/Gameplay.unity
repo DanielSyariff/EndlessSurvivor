@@ -720,7 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ebcc4699e52cb41bba9b9c0049e107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToAttack: 1
+  timeToAttack: 2
   leftWhipObject: {fileID: 566969995}
   rightWhipObject: {fileID: 236734597}
   whipAttackSize: {x: 1.4, y: 1}
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185071f759341384085a01fd542e5176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDisable: 0.4
+  timeToDisable: 0.1
 --- !u!1 &237623266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2738,7 +2738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185071f759341384085a01fd542e5176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDisable: 0.4
+  timeToDisable: 0.1
 --- !u!1 &567410426
 GameObject:
   m_ObjectHideFlags: 0
