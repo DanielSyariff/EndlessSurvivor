@@ -64,7 +64,8 @@ public class Enemy : MonoBehaviour, IDamageable
         if (healthPoint < 1)
         {
             targetGameObject.GetComponent<Level>().AddExperience(experienceReward);
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
+            Destroy(gameObject);
             ResetStatus();
         }
     }

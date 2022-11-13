@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5549096874707921484}
   - component: {fileID: 4792732980831144457}
+  - component: {fileID: 4890920179588577100}
   - component: {fileID: 7597011586207152741}
   - component: {fileID: 761830452377225513}
   m_Layer: 0
@@ -51,6 +52,20 @@ MonoBehaviour:
   healthPoint: 5
   damage: 1
   experienceReward: 400
+--- !u!114 &4890920179588577100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5549096874707921485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8edaac27be7d64cb0b923fb73aabbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPickup: {fileID: 5284523281251384687, guid: 0df54c30bc6b9cf4dae1249f9f9537ba, type: 3}
+  chanceToDrop: 1
 --- !u!50 &7597011586207152741
 Rigidbody2D:
   serializedVersion: 4

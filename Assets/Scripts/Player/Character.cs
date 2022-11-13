@@ -8,6 +8,15 @@ public class Character : MonoBehaviour
     public int currentHP;
     [SerializeField] StatusBar hpBar;
 
+    [HideInInspector] public Level level;
+    [HideInInspector] public Coins coins;
+
+    private void Awake()
+    {
+        level = GetComponent<Level>();
+        coins = GetComponent<Coins>();
+    }
+
     private void Start()
     {
         currentHP = maxHp;
