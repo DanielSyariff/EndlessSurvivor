@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     private SpriteRenderer sp;
 
@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int baseHp = 5;
     [SerializeField] int healthPoint;
     [SerializeField] int damage = 1;
+    [SerializeField] int experienceReward = 400;
 
     private void Awake()
     {
@@ -62,6 +63,7 @@ public class Enemy : MonoBehaviour
 
         if (healthPoint < 1)
         {
+            targetGameObject.GetComponent<Level>().AddExperience(experienceReward);
             this.gameObject.SetActive(false);
             ResetStatus();
         }

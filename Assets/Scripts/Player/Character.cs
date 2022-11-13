@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         currentHP = maxHp;
+        hpBar.SetState(currentHP, maxHp);
     }
 
     public void TakeDamage(int damage)
@@ -33,9 +34,11 @@ public class Character : MonoBehaviour
         }
 
         currentHP += amount;
-        if(currentHP > maxHp)
+        if (currentHP > maxHp)
         {
             currentHP = maxHp;
         }
+
+        hpBar.SetState(currentHP, maxHp);
     }
 }
