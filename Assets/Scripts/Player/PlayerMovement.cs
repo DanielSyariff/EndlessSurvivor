@@ -11,8 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     [HideInInspector] public Vector3 movementVector;
-    [HideInInspector] public float lastHorizontalVector;
-    [HideInInspector] public float lastVerticalVector;
+    public float lastHorizontalVector;
+    public float lastVerticalVector;
 
     [SerializeField] float speed = 3f;
 
@@ -21,6 +21,12 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         movementVector = new Vector3();
         animate = GetComponent<SpriteAnimate>();
+    }
+
+    private void Start()
+    {
+        lastHorizontalVector = -1f;
+        lastVerticalVector = -1f;
     }
 
     private void Update()

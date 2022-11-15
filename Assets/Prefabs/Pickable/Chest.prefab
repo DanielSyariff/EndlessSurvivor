@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8494668428904542760}
   - component: {fileID: 8494668428904542766}
   - component: {fileID: 4784023068608753745}
+  - component: {fileID: 6943193513995169187}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -136,4 +137,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItemPickup: {fileID: 3621775830216927991, guid: db3daf68f0ea85e4a98d10b1596d5379, type: 3}
-  chanceToDrop: 0.4
+  chanceToDrop: 1
+--- !u!114 &6943193513995169187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8494668428904542762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3a9a8204a6dba48b4ecde7204a1f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 50

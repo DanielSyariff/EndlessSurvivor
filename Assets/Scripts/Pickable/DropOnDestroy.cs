@@ -8,8 +8,20 @@ public class DropOnDestroy : MonoBehaviour
 
     [SerializeField] [Range(0f, 1f)] float chanceToDrop;
 
+    bool isQuiting = false;
+
+    private void OnApplicationQuit()
+    {
+        isQuiting = true;
+    }
+
     private void OnDestroy()
     {
+        if (isQuiting)
+        {
+            return;
+        }
+
         if (Random.value < chanceToDrop)
         {
             Transform t = Instantiate(dropItemPickup).transform;
