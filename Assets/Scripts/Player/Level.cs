@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    [SerializeField] UpgradeManager upgradeManager;
+
     int level = 1;
     int experience = 0;
 
@@ -34,6 +36,7 @@ public class Level : MonoBehaviour
     {
         if (experience >= TO_LEVEL_UP)
         {
+            upgradeManager.OpenUpgradePanel();
             experience -= TO_LEVEL_UP;
             level += 1;
             experienceBar.SetLevelText(level);

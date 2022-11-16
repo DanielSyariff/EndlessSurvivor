@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnergyProjectile : MonoBehaviour
 {
+    [SerializeField] public ShootProjectile shootProjectile;
     [SerializeField] Vector3 direction;
     [SerializeField] float speed;
 
-    [SerializeField] int damage = 5;
+    [SerializeField] public int damage = 5;
 
     [SerializeField] float applyDamageTimer = 1;
     float applyTimer = 0;
@@ -71,6 +72,7 @@ public class EnergyProjectile : MonoBehaviour
                 IDamageable enemy = c.GetComponent<IDamageable>();
                 if (enemy != null)
                 {
+                    shootProjectile.ProjectileGiveDamage(damage, c.transform.position);
                     enemy.TakeDamage(damage);
                     gotHit++;
                     applyTimer = applyDamageTimer;

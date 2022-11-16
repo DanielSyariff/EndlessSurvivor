@@ -3,11 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootProjectile : MonoBehaviour
+public class ShootProjectile : WeaponBase
 {
-    [SerializeField] float timeToAttack;
-    float timer;
-
     PlayerMovement playerMove;
 
     [SerializeField] GameObject projectilePrefab;
@@ -19,46 +16,25 @@ public class ShootProjectile : MonoBehaviour
         playerMove = GetComponentInParent<PlayerMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Attack()
     {
-        timer -= Time.deltaTime;
-        if (timer < 0f)
-        {
-            SpawnProjectile();
-        }
-
-        //if (timer < timeToAttack)
-        //{
-        //    timer += Time.deltaTime;
-        //    return;
-        //}
-
-        //timer = 0;
-        //SpawnProjectile();
-    }
-
-    private void SpawnProjectile()
-    {
-        //timer = timeToAttack;
-        //GameObject shoot = Instantiate(projectilePrefab);
-        //shoot.transform.position = transform.position;
-        //shoot.GetComponent<EnergyProjectile>().SetDirection(playerMove.lastHorizontalVector, 0);
-
         StartCoroutine(SpawnProjectiles());
     }
-
     IEnumerator SpawnProjectiles()
     {
-        timer = timeToAttack;
         for (int i = 0; i < bulletAmount; i++)
         {
             GameObject shoot = Instantiate(projectilePrefab);
             shoot.transform.position = transform.position;
             shoot.GetComponent<EnergyProjectile>().SetDirection(playerMove.lastHorizontalVector, 0);
+            shoot.GetComponent<EnergyProjectile>().damage = weaponStats.damage;
+            shoot.GetComponent<EnergyProjectile>().shootProjectile = this;
             yield return new WaitForSeconds(0.2f);
         }
-        //timer = timeToAttack;
+    }
 
+    public void ProjectileGiveDamage(int damage, Vector3 position)
+    {
+        PostDamage(damage, position);
     }
 }

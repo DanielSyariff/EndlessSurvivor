@@ -3,38 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhipWeapon : MonoBehaviour
+public class WhipWeapon : WeaponBase
 {
-
-    [SerializeField] float timeToAttack = 4f;
-    float timer;
-
     [SerializeField] GameObject leftWhipObject;
     [SerializeField] GameObject rightWhipObject;
 
     PlayerMovement playerMove;
     [SerializeField] Vector2 whipAttackSize = new Vector2(4f, 2f);
 
-    [SerializeField] int whipDamage = 1;
-
     private void Awake()
     {
         playerMove = GetComponentInParent<PlayerMovement>();
     }
-    // Start is called before the first frame update
-    private void Update()
+
+    private void ApplyDamage(Collider2D[] colliders)
     {
-        timer -= Time.deltaTime;
-        if (timer < 0f)
+        for (int i = 0; i < colliders.Length; i++)
         {
-            Attack();
+            //Debug.Log(colliders[i].gameObject.name);
+            IDamageable e = colliders[i].GetComponent<IDamageable>();
+
+            if (e != null)
+            {
+                PostDamage(weaponStats.damage, colliders[i].transform.position);
+                e.TakeDamage(weaponStats.damage);
+            }
         }
     }
 
-    private void Attack()
+    private void OnDrawGizmos()
     {
-        timer = timeToAttack;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(rightWhipObject.transform.position, whipAttackSize);
+        Gizmos.DrawWireCube(leftWhipObject.transform.position, whipAttackSize);
+    }
 
+    public override void Attack()
+    {
         if (playerMove.lastHorizontalVector > 0)
         {
             rightWhipObject.SetActive(true);
@@ -49,26 +54,5 @@ public class WhipWeapon : MonoBehaviour
             Collider2D[] colliders = Physics2D.OverlapBoxAll(leftWhipObject.transform.position, whipAttackSize, 0f);
             ApplyDamage(colliders);
         }
-    }
-
-    private void ApplyDamage(Collider2D[] colliders)
-    {
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            //Debug.Log(colliders[i].gameObject.name);
-            IDamageable e = colliders[i].GetComponent<IDamageable>();
-
-            if (e != null)
-            {
-                e.TakeDamage(whipDamage);
-            }
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(rightWhipObject.transform.position, whipAttackSize);
-        Gizmos.DrawWireCube(leftWhipObject.transform.position, whipAttackSize);
     }
 }

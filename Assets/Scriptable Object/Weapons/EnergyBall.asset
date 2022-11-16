@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a077790e8b0694546a80309a220e0e04, type: 3}
+  m_Name: EnergyBall
+  m_EditorClassIdentifier: 
+  Name: Energy Ball
+  stats:
+    damage: 1
+    timeToAttack: 2
+  weaponBasePrefab: {fileID: 7777033526990637357, guid: 7f6d036712eac6b43a707932f8957c68, type: 3}
