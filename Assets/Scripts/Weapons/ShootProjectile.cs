@@ -9,7 +9,6 @@ public class ShootProjectile : WeaponBase
 
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] int bulletAmount;
-    float timeInterval;
     // Start is called before the first frame update
     void Start()
     {

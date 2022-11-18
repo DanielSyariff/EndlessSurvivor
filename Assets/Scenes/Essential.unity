@@ -590,9 +590,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94c59c278f2bd648af30e4606949eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 200
   currentHP: 0
   armor: 0
+  hpDegenerationRate: 1
+  hpRegenerationTimer: 0
   hpBar: {fileID: 1635355002}
   level: {fileID: 0}
   coins: {fileID: 0}
@@ -671,6 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponsObjectController: {fileID: 1019367687}
   startingWeapon: {fileID: 11400000, guid: 92d4fdb5b6c6c284d80ccc8dc6515f00, type: 2}
+  weapons: []
 --- !u!1 &395255965
 GameObject:
   m_ObjectHideFlags: 0
