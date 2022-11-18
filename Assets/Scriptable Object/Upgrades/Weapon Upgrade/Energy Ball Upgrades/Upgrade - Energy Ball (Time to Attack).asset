@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 0
   Name: Energy Ball - Decrease Time to Attack
-  icon: {fileID: 21300000, guid: 87479f84fbb21a84e8a6a59014c83a0f, type: 3}
+  icon: {fileID: 21300000, guid: 011d72eb33f49dd43bc5c58882f4ff83, type: 3}
   weaponData: {fileID: 11400000, guid: e23c32ce628891d4184365b64ea53987, type: 2}
   weaponUpgradeStats:
     damage: 0
     timeToAttack: -1
+    bulletAmount: 0

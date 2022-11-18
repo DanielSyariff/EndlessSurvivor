@@ -38,9 +38,10 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    //Seacrh Weapon yang akan di Upgrade berdasarkan List yang sudah di Add di "weapons" dari Fungsi AddWeapon
+    //Search Weapon yang akan di Upgrade berdasarkan List yang sudah di Add di "weapons" dari Fungsi AddWeapon
     internal void UpgradeWeapon(UpgradeData upgradeData)
     {
+        //Cari SO WeaponData yang sama dengan Selected Upgrade SO Weapon
         WeaponBase weaponToUpgrade = weapons.Find(wd => wd.weaponData == upgradeData.weaponData);
         weaponToUpgrade.Upgrade(upgradeData);
     }

@@ -8,7 +8,6 @@ public class ShootProjectile : WeaponBase
     PlayerMovement playerMove;
 
     [SerializeField] GameObject projectilePrefab;
-    [SerializeField] int bulletAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +20,7 @@ public class ShootProjectile : WeaponBase
     }
     IEnumerator SpawnProjectiles()
     {
-        for (int i = 0; i < bulletAmount; i++)
+        for (int i = 0; i < weaponStats.bulletAmount; i++)
         {
             GameObject shoot = Instantiate(projectilePrefab);
             shoot.transform.position = transform.position;

@@ -25,7 +25,7 @@ public abstract class WeaponBase : MonoBehaviour
     {
         weaponData = wd;
 
-        weaponStats = new WeaponStats(wd.stats.damage, wd.stats.timeToAttack);
+        weaponStats = new WeaponStats(wd.stats.damage, wd.stats.timeToAttack, wd.stats.bulletAmount);
     }
 
     public abstract void Attack();
