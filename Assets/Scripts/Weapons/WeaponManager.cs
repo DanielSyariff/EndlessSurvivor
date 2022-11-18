@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    [SerializeField] Character character;
     [SerializeField] Transform weaponsObjectController;
     [SerializeField] WeaponData startingWeapon;
 
@@ -12,6 +13,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Awake()
     {
+        character = GetComponent<Character>();
         weapons = new List<WeaponBase>();
     }
 
@@ -36,6 +38,12 @@ public class WeaponManager : MonoBehaviour
         {
             level.AddUpgradesIntoTheListOfAvailableUpgrades(weaponData.upgrades);
         }
+    }
+
+    internal void AddStatusToCharacter(UpgradeData upgradeData)
+    {
+        WeaponBase weaponToUpgrade = weapons.Find(wd => wd.weaponData == upgradeData.weaponData);
+        weaponToUpgrade.UpgradeToCharacterStatus(character, upgradeData);
     }
 
     //Search Weapon yang akan di Upgrade berdasarkan List yang sudah di Add di "weapons" dari Fungsi AddWeapon

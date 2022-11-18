@@ -8,6 +8,9 @@ public class Character : MonoBehaviour
     public int maxHp = 1000;
     public int currentHP;
 
+    public float speed = 3f;
+    [SerializeField] [Range(0f, 100f)] public float critRate;
+
     public int armor;
 
     public float hpDegenerationRate = 1f;

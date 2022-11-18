@@ -8,16 +8,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Scripts")]
     public SpriteAnimate animate;
+    public Character character;
 
     Rigidbody2D rb;
     [HideInInspector] public Vector3 movementVector;
     public float lastHorizontalVector;
     public float lastVerticalVector;
 
-    [SerializeField] float speed = 3f;
-
     private void Awake()
     {
+        character = GetComponent<Character>();
         rb = GetComponent<Rigidbody2D>();
         movementVector = new Vector3();
         animate = GetComponent<SpriteAnimate>();
@@ -46,6 +46,6 @@ public class PlayerMovement : MonoBehaviour
         animate.horizontal = movementVector.x;
         animate.vertical = movementVector.y;
 
-        rb.velocity = movementVector *= speed;
+        rb.velocity = movementVector *= character.speed;
     }
 }

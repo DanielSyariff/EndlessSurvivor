@@ -513,10 +513,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animate: {fileID: 0}
+  character: {fileID: 0}
   movementVector: {x: 0, y: 0, z: 0}
   lastHorizontalVector: 0
   lastVerticalVector: 0
-  speed: 3
 --- !u!50 &384923406
 Rigidbody2D:
   serializedVersion: 4
@@ -590,8 +590,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94c59c278f2bd648af30e4606949eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 200
+  maxHp: 1000
   currentHP: 0
+  speed: 3
+  critRate: 1
   armor: 0
   hpDegenerationRate: 1
   hpRegenerationTimer: 0
@@ -671,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a143c8f3efef48b47c2e5396f8d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   weaponsObjectController: {fileID: 1019367687}
   startingWeapon: {fileID: 11400000, guid: 92d4fdb5b6c6c284d80ccc8dc6515f00, type: 2}
   weapons: []

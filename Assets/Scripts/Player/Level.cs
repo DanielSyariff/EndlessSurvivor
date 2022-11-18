@@ -69,6 +69,7 @@ public class Level : MonoBehaviour
                 break;
             case UpgradeType.WeaponUnlock:
                 weaponManager.AddWeapon(upgradeData.weaponData);
+                weaponManager.AddStatusToCharacter(upgradeData);
                 break;
             case UpgradeType.ItemUnlock:
                 break;
