@@ -40,11 +40,11 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    internal void AddStatusToCharacter(UpgradeData upgradeData)
-    {
-        WeaponBase weaponToUpgrade = weapons.Find(wd => wd.weaponData == upgradeData.weaponData);
-        weaponToUpgrade.UpgradeToCharacterStatus(character, upgradeData);
-    }
+    //internal void AddStatusToCharacter(UpgradeData upgradeData)
+    //{
+    //    WeaponBase weaponToUpgrade = weapons.Find(wd => wd.weaponData == upgradeData.weaponData);
+    //    weaponToUpgrade.UpgradeToCharacterStatus(character, upgradeData);
+    //}
 
     //Search Weapon yang akan di Upgrade berdasarkan List yang sudah di Add di "weapons" dari Fungsi AddWeapon
     internal void UpgradeWeapon(UpgradeData upgradeData)

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 931f9cca6b337e149b8522a785030499, type: 3}
-  m_Name: Upgrade - Energy Ball (Time to Attack)
+  m_Name: WPUpgrade - Energy Ball (Time to Attack)
   m_EditorClassIdentifier: 
   upgradeType: 0
   Name: Energy Ball - Decrease Time to Attack

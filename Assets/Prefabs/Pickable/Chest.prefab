@@ -136,7 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8edaac27be7d64cb0b923fb73aabbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItemPickup: {fileID: 3621775830216927991, guid: db3daf68f0ea85e4a98d10b1596d5379, type: 3}
+  dropItemPrefab:
+  - {fileID: 3621775830216927991, guid: db3daf68f0ea85e4a98d10b1596d5379, type: 3}
   chanceToDrop: 1
 --- !u!114 &6943193513995169187
 MonoBehaviour:

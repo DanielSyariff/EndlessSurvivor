@@ -10,9 +10,9 @@ public class WeaponStats
     public int damage;
     public float timeToAttack;
 
-    [Header("Bonus Character Status")]
-    public float critRate;
-    public float speed;
+    //[Header("Bonus Character Status")]
+    //public float critRate;
+    //public float speed;
     //For Range Attack and Have Bullet Only
     [Header("If Have Bulllet Only")]
     public int bulletAmount;
@@ -31,11 +31,11 @@ public class WeaponStats
         this.bulletAmount += weaponUpgradeStats.bulletAmount;
     }
 
-    internal void SumCharacter(Character toCharacter, WeaponStats weaponUpgradeStats)
-    {
-        toCharacter.speed += weaponUpgradeStats.speed;
-        toCharacter.critRate += weaponUpgradeStats.critRate;
-    }
+    //internal void SumCharacter(Character toCharacter, WeaponStats weaponUpgradeStats)
+    //{
+    //    toCharacter.speed += weaponUpgradeStats.speed;
+    //    toCharacter.critRate += weaponUpgradeStats.critRate;
+    //}
 }
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Survivor/Weapon")]

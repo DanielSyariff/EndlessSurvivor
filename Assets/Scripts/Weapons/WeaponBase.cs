@@ -40,8 +40,8 @@ public abstract class WeaponBase : MonoBehaviour
         weaponStats.Sum(upgradeData.weaponUpgradeStats);
     }
 
-    internal void UpgradeToCharacterStatus(Character toCharacter, UpgradeData upgradeData)
-    {
-        weaponStats.SumCharacter(toCharacter ,upgradeData.weaponUpgradeStats);
-    }
+    //internal void UpgradeToCharacterStatus(Character toCharacter, UpgradeData upgradeData)
+    //{
+    //    weaponStats.SumCharacter(toCharacter ,upgradeData.weaponUpgradeStats);
+    //}
 }

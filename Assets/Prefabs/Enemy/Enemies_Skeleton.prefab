@@ -51,7 +51,7 @@ MonoBehaviour:
   speed: 1
   baseHp: 5
   healthPoint: 5
-  damage: 1
+  damage: 11
   experienceReward: 400
 --- !u!114 &4890920179588577100
 MonoBehaviour:
@@ -65,7 +65,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8edaac27be7d64cb0b923fb73aabbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItemPickup: {fileID: 5284523281251384687, guid: 0df54c30bc6b9cf4dae1249f9f9537ba, type: 3}
+  dropItemPrefab:
+  - {fileID: 5284523281251384687, guid: 0df54c30bc6b9cf4dae1249f9f9537ba, type: 3}
+  - {fileID: 2040877128464516128, guid: b28cf0af0cfd7f644a60fc8678eb8683, type: 3}
   chanceToDrop: 1
 --- !u!50 &7597011586207152741
 Rigidbody2D:

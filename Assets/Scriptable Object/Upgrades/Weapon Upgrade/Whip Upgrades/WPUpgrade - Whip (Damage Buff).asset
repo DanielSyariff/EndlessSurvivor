@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 931f9cca6b337e149b8522a785030499, type: 3}
-  m_Name: Upgrade - Whip (Time to Attack)
+  m_Name: WPUpgrade - Whip (Damage Buff)
   m_EditorClassIdentifier: 
   upgradeType: 0
-  Name: Whip - Decrease Time to Attack
-  icon: {fileID: 21300000, guid: 58f28cac64ffeda4dab74c2c8345254e, type: 3}
+  Name: Whip - Increase Damage
+  icon: {fileID: 21300000, guid: ff544d0bb0b344a418c51ba88bb122a4, type: 3}
   weaponData: {fileID: 11400000, guid: 92d4fdb5b6c6c284d80ccc8dc6515f00, type: 2}
   weaponUpgradeStats:
-    damage: 0
-    timeToAttack: -1
-    bulletAmount: 0
+    damage: 2
+    timeToAttack: 0

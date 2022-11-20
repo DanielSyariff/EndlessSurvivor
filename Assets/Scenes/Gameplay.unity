@@ -2334,6 +2334,9 @@ GameObject:
   m_Component:
   - component: {fileID: 824612131}
   - component: {fileID: 824612130}
+  - component: {fileID: 824612132}
+  - component: {fileID: 824612133}
+  - component: {fileID: 824612134}
   m_Layer: 0
   m_Name: === WORLD ===
   m_TagString: Untagged
@@ -2385,6 +2388,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &824612132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824612129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2778e7234179bf49b568b6b1a309191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+--- !u!114 &824612133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824612129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6bd5886ac18034478a86583cfd8f137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageData: {fileID: 11400000, guid: f4bdd344cf1b3e14089e8da3c26e80cb, type: 2}
+  enemiesManager: {fileID: 1462800504}
+--- !u!114 &824612134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824612129}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa2acb430770764fadcb493c3d8ccac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToCompleteLevel: 20
+  levelCompletePanel: {fileID: 0}
 --- !u!1 &859037730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 957038871111843033, guid: 29e662d7fd87374488df26399e629a8c, type: 3}

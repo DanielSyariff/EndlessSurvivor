@@ -10,6 +10,7 @@ public class Level : MonoBehaviour
     [SerializeField] ExperienceBar experienceBar;
     [SerializeField] UpgradeManager upgradeManager;
     [SerializeField] WeaponManager weaponManager;
+    [SerializeField] PassiveItems passiveItems;
 
     //List Keseluruhan Upgrades
     [SerializeField] List<UpgradeData> upgrades;
@@ -17,12 +18,16 @@ public class Level : MonoBehaviour
     //List Upgrade yang terpilih berdasarkan Randomize
     [SerializeField] List<UpgradeData> selectedUpgrades;
 
-    //List Upgrade yang dimiliki Player saat bermain
+    //List Weapon yang dimiliki Player saat bermain
     [SerializeField] List<UpgradeData> acquiredUpgrades;
+
+    //List Item yang bisa dimiliki Player
+    [SerializeField] List<UpgradeData> upgradesItemAvailableOnStart;
 
     private void Awake()
     {
         weaponManager = GetComponent<WeaponManager>();
+        passiveItems = GetComponent<PassiveItems>();
     }
 
     int TO_LEVEL_UP
@@ -37,6 +42,7 @@ public class Level : MonoBehaviour
     {
         experienceBar.UpdateExperienceSlider(experience, TO_LEVEL_UP);
         experienceBar.SetLevelText(level);
+        AddUpgradesIntoTheListOfAvailableUpgrades(upgradesItemAvailableOnStart);
     }
 
     public void AddExperience(int amount)
@@ -48,6 +54,11 @@ public class Level : MonoBehaviour
 
     internal void AddUpgradesIntoTheListOfAvailableUpgrades(List<UpgradeData> upgradesToAdd)
     {
+        if (upgradesToAdd == null)
+        {
+            return;
+        }
+
         upgrades.AddRange(upgradesToAdd);
     }
 
@@ -66,12 +77,15 @@ public class Level : MonoBehaviour
                 weaponManager.UpgradeWeapon(upgradeData);
                 break;
             case UpgradeType.ItemUpgrade:
+                passiveItems.UpgradeItem(upgradeData);
                 break;
             case UpgradeType.WeaponUnlock:
                 weaponManager.AddWeapon(upgradeData.weaponData);
-                weaponManager.AddStatusToCharacter(upgradeData);
+                //weaponManager.AddStatusToCharacter(upgradeData);
                 break;
             case UpgradeType.ItemUnlock:
+                passiveItems.Equip(upgradeData.item);
+                AddUpgradesIntoTheListOfAvailableUpgrades(upgradeData.item.upgrades);
                 break;
             default:
                 break;

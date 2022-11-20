@@ -5,12 +5,12 @@ using TMPro;
 
 public class Coins : MonoBehaviour
 {
-    public int coinAcquired;
+    [SerializeField] DataContainer data;
     [SerializeField] TextMeshProUGUI coinsText;
     
     public void Add(int amount)
     {
-        coinAcquired += amount;
-        coinsText.text = "COINS : " + coinAcquired.ToString();
+        data.coins += amount;
+        coinsText.text = "COINS : " + data.coins.ToString();
     }
 }

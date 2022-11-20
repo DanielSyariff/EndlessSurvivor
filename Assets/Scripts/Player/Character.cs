@@ -52,9 +52,11 @@ public class Character : MonoBehaviour
         {
             return;
         }
-        //ApplyArmor(ref damage);
 
-        currentHP -= damage;
+        //Calculate Damage Reduction
+        currentHP -= ApplyArmor(damage);
+
+        //currentHP -= damage;
 
         if (currentHP <= 0)
         {
@@ -67,12 +69,17 @@ public class Character : MonoBehaviour
         hpBar.SetState(currentHP, maxHp);
     }
 
-    private void ApplyArmor(ref int damage)
+    private int ApplyArmor(int damage)
     {
         damage -= armor;
         if (damage < 0)
         {
             damage = 0;
+            return damage;
+        }
+        else
+        {
+            return damage;
         }
     }
 
