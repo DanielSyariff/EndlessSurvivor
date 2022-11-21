@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+    [SerializeField] StageProgress stageProgress;
     [SerializeField] Vector2 spawnArea;
     [SerializeField] float spawnTimer;
     GameObject player;
@@ -16,15 +16,18 @@ public class EnemiesManager : MonoBehaviour
         player = GameManager.instance.playerTransform.gameObject;
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy(EnemyData enemyDataToSpawn)
     {
         Vector3 position = GenerateRandomPosition();
 
         position += player.transform.position;
 
-        GameObject newEnemy = Instantiate(enemy);
+        GameObject newEnemy = Instantiate(enemyDataToSpawn.enemy);
         newEnemy.transform.position = position;
-        newEnemy.GetComponent<Enemy>().SetTarget(player);
+        Enemy newEnemyComponent = newEnemy.GetComponent<Enemy>();
+        newEnemyComponent.SetTarget(player);
+        newEnemyComponent.SetStatus(enemyDataToSpawn.stats);
+        newEnemyComponent.UpdateStatsForProgress(stageProgress.Progress);
         newEnemy.transform.parent = transform;
     }
 

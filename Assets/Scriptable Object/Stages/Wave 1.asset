@@ -15,13 +15,17 @@ MonoBehaviour:
   stageEvents:
   - time: 0
     message: Wave 1
-    enemyToSpawn: {fileID: 0}
-    count: 50
-  - time: 10
+    enemyToSpawn: {fileID: 11400000, guid: 438d6ad106e62e14cb6a3b56fa60716b, type: 2}
+    count: 10
+  - time: 3
     message: Wave 2
-    enemyToSpawn: {fileID: 0}
-    count: 20
+    enemyToSpawn: {fileID: 11400000, guid: c6247b2e2cfab63459dd9c52740b2b24, type: 2}
+    count: 5
   - time: 15
     message: Wave 3
-    enemyToSpawn: {fileID: 0}
-    count: 30
+    enemyToSpawn: {fileID: 11400000, guid: 438d6ad106e62e14cb6a3b56fa60716b, type: 2}
+    count: 5
+  - time: 17
+    message: Wave 3
+    enemyToSpawn: {fileID: 11400000, guid: c6247b2e2cfab63459dd9c52740b2b24, type: 2}
+    count: 5

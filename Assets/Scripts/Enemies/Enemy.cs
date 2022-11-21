@@ -1,6 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
+[Serializable]
+public class EnemyStats
+{
+    public int baseHp = 5;
+    public int healthPoint;
+    public int damage = 1;
+    public float speed;
+
+    public EnemyStats(EnemyStats getEnemyStats)
+    {
+        this.baseHp = getEnemyStats.baseHp;
+        this.healthPoint = this.baseHp;
+        this.damage = getEnemyStats.damage;
+        this.speed = getEnemyStats.speed;
+    }
+
+    internal void ApplyProgress(float progress)
+    {
+        this.baseHp = (int)(baseHp * progress);
+        this.healthPoint = baseHp;
+        this.damage = (int)(damage * progress);
+        Debug.Log("Progress : " + progress);
+    }
+    
+}
 
 public class Enemy : MonoBehaviour, IDamageable
 {
@@ -9,14 +36,10 @@ public class Enemy : MonoBehaviour, IDamageable
     Transform targetDestination;
     GameObject targetGameObject;
     Character targetCharacter;
-    [SerializeField] float speed;
 
     Rigidbody2D rgbd2d;
 
-    [SerializeField] int baseHp = 5;
-    [SerializeField] int healthPoint;
-    [SerializeField] int damage = 1;
-    [SerializeField] int experienceReward = 400;
+    public EnemyStats enemyStats;
 
     private void Awake()
     {
@@ -31,10 +54,20 @@ public class Enemy : MonoBehaviour, IDamageable
         targetDestination = target.transform;
     }
 
+    internal void SetStatus(EnemyStats getEnemyStats)
+    {
+        enemyStats = new EnemyStats(getEnemyStats);
+    }
+
+    internal void UpdateStatsForProgress(float progress)
+    {
+        enemyStats.ApplyProgress(progress);
+    }
+
     private void FixedUpdate()
     {
         Vector3 direction = (targetDestination.position - transform.position).normalized;
-        rgbd2d.velocity = direction * speed;
+        rgbd2d.velocity = direction * enemyStats.speed;
         TurnDirection();
         //transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
@@ -54,14 +87,16 @@ public class Enemy : MonoBehaviour, IDamageable
             targetCharacter = targetGameObject.GetComponent<Character>();
         }
 
-        targetCharacter.TakeDamage(damage);
+        targetCharacter.TakeDamage(enemyStats.damage);
     }
 
     public void TakeDamage(int damage)
     {
-        healthPoint -= damage;
+        enemyStats.healthPoint -= damage;
 
-        if (healthPoint < 1)
+        Debug.Log("Status : " + enemyStats.healthPoint);
+
+        if (enemyStats.healthPoint < 1)
         {
             //targetGameObject.GetComponent<Level>().AddExperience(experienceReward);
             //this.gameObject.SetActive(false);
@@ -85,6 +120,6 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void ResetStatus()
     {
-        healthPoint = baseHp;
+        enemyStats.healthPoint = enemyStats.baseHp;
     }
 }

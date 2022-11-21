@@ -48,11 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a17b774fa392ea4dab405b22361a792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  baseHp: 5
-  healthPoint: 5
-  damage: 11
-  experienceReward: 400
+  enemyStats:
+    baseHp: 0
+    healthPoint: 0
+    damage: 0
+    speed: 0
 --- !u!114 &4890920179588577100
 MonoBehaviour:
   m_ObjectHideFlags: 0
