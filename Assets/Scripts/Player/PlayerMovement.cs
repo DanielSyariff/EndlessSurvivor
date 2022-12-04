@@ -7,6 +7,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Scripts")]
+    public MovementJoystick movementJoystick;
+    public bool useJoystick;
     public SpriteAnimate animate;
     public Character character;
 
@@ -31,21 +33,42 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        movementVector.x = Input.GetAxis("Horizontal");
-        movementVector.y = Input.GetAxis("Vertical");
-
-        if (movementVector.x != 0)
+        if (!useJoystick)
         {
-            lastHorizontalVector = movementVector.x;
+            //Keyboard
+            movementVector.x = Input.GetAxis("Horizontal");
+            movementVector.y = Input.GetAxis("Vertical");
+
+            if (movementVector.x != 0)
+            {
+                lastHorizontalVector = movementVector.x;
+            }
+            if (movementVector.y != 0)
+            {
+                lastVerticalVector = movementVector.y;
+            }
+
+            animate.horizontal = movementVector.x;
+            animate.vertical = movementVector.y;
+
+            rb.velocity = movementVector *= character.speed;
         }
-        if (movementVector.y != 0)
+        else
         {
-            lastVerticalVector = movementVector.y;
+            //Joystick Movement
+            if (movementJoystick.joystickVec.x != 0)
+            {
+                lastHorizontalVector = movementJoystick.joystickVec.x;
+            }
+            if (movementJoystick.joystickVec.y != 0)
+            {
+                lastVerticalVector = movementJoystick.joystickVec.y;
+            }
+
+            animate.horizontal = movementJoystick.joystickVec.x;
+            animate.vertical = movementJoystick.joystickVec.y;
+
+            rb.velocity = new Vector2(movementJoystick.joystickVec.x * character.speed, movementJoystick.joystickVec.y * character.speed);
         }
-
-        animate.horizontal = movementVector.x;
-        animate.vertical = movementVector.y;
-
-        rb.velocity = movementVector *= character.speed;
     }
 }
