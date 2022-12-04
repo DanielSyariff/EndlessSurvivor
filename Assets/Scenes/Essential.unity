@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 384923414}
   - component: {fileID: 384923406}
   - component: {fileID: 384923408}
+  - component: {fileID: 384923415}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -632,7 +633,7 @@ Transform:
   - {fileID: 1635355000}
   - {fileID: 1019367687}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &384923405
 MonoBehaviour:
@@ -813,6 +814,20 @@ MonoBehaviour:
   weaponsObjectController: {fileID: 1019367687}
   startingWeapon: {fileID: 11400000, guid: 92d4fdb5b6c6c284d80ccc8dc6515f00, type: 2}
   weapons: []
+--- !u!114 &384923415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384923403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f8c107c868e272429f0e1933bd774d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectWidth: 0
+  objectHeight: 0
 --- !u!1 &395255965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,7 +1293,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -1900,7 +1915,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609391039}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -1941,7 +1956,7 @@ Transform:
   m_Children:
   - {fileID: 607034322}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636357528
 GameObject:
@@ -4112,6 +4127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a43316e1ade03c45b8fd742476b2cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameplayMode: 2
   playerTransform: {fileID: 384923404}
 --- !u!114 &1819650263
 MonoBehaviour:

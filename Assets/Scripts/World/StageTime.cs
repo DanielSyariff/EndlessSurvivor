@@ -5,9 +5,9 @@ using UnityEngine;
 public class StageTime : MonoBehaviour
 {
     public float time;
-    TimerUi timerUI;
+    [SerializeField] TimerUi timerUI;
 
-    private void Awake()
+    private void Start()
     {
         timerUI = FindObjectOfType<TimerUi>();
     }
